@@ -1,0 +1,9 @@
+we want to implement a Stack class, so the requirements are:
+
+Limit the size of the stack.
+Add element. 
+Remove element. 
+Check what was the last element. 
+Get the current size of the stack.
+Have a class that can accept any data type.
+When the customer exceeds the size of the Stack, we need to throw an appropriate exception.

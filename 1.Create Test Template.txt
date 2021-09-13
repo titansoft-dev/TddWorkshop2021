@@ -1,0 +1,61 @@
+1)	Use live temple from Resharper to create test class template
+
+Go to Resharper >  Tools > Template Explorers > New Template
+
+Template Name : testclass
+
+
+Noted: (need to choose All machos)
+$namespace$  => Default namespace for current file  (untick editable)
+$name$ => Current filename without extension        (untick editable)
+$Method$ => (tick editable)
+
+Paste text below:
+
+using NUnit.Framework;
+
+namespace $namespace$
+{
+
+[TestFixture()]
+public class $name$
+{
+
+  [SetUp]
+  public void Setup()
+  {}
+
+  [Test]
+  public void $METHOD$()
+  {
+  //Arrange
+
+  //Act
+
+  //Assert
+  }
+
+  [TearDown]
+  public void CleanUp()
+  {}
+
+}
+}
+
+
+
+2) Create test method
+
+Template Name : test
+Paste text below:
+
+
+[Test]
+public void $METHOD$()
+{
+  //Arrange
+
+  //Act
+
+  //Assert
+}

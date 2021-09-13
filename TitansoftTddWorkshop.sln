@@ -5,7 +5,14 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TitansoftTddWorkshop.UnitTests", "TitansoftTddWorkshop.UnitTests\TitansoftTddWorkshop.UnitTests.csproj", "{0A183F89-2B4D-4EDE-A194-5756DE95C4F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TitansoftTddWorkshop", "TitansoftTddWorkshop\TitansoftTddWorkshop.csproj", "{978616EC-BDA4-403D-956A-19B2B7AAABC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TitansoftTddWorkshop", "TitansoftTddWorkshop\TitansoftTddWorkshop.csproj", "{978616EC-BDA4-403D-956A-19B2B7AAABC9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Instructions", ".Instructions", "{78D1B456-9A61-4689-B82D-4B1B509BA22C}"
+	ProjectSection(SolutionItems) = preProject
+		1.Create Test Template.txt = 1.Create Test Template.txt
+		2.BowlingKata.txt = 2.BowlingKata.txt
+		3.FILO Stack.txt = 3.FILO Stack.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
