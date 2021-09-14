@@ -7,7 +7,7 @@ namespace TitansoftTddWorkshop.UnitTests
         [SetUp]
         public void Setup()
         {
-            //
+            //testing
         }
 
         [Test]
