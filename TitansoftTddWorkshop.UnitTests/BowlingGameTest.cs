@@ -13,7 +13,7 @@ namespace TitansoftTddWorkshop.UnitTests
         }
 
         [Test]
-        public void METHOD()
+        public void AllZero()
         {
             //Arrange
 
@@ -21,6 +21,8 @@ namespace TitansoftTddWorkshop.UnitTests
 
             //Assert
         }
+
+        
 
         [TearDown]
         public void CleanUp()
