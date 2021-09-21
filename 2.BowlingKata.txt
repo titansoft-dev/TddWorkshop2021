@@ -26,3 +26,6 @@ Write a class 'Game' with two methods
 The argument is the number of pins knocked down.
 2. int Score() is called only at the very end of the game. 
 It returns the total score for that game.
+
+
+

@@ -1,17 +1,14 @@
-Date:21/09/2021
+Date:25/09/2021
 1)	Use live temple from Resharper to create test class template
 
+a)
 Go to Resharper >  Tools > Template Explorers > New Template
 
-Template Name : testclass
+b)
+shortcut Name : testclass
 
+c) Copy and Paste text below
 
-Noted: (need to choose All machos)
-$namespace$  => Default namespace for current file  (untick editable)
-$name$ => Current filename without extension        (untick editable)
-$Method$ => (tick editable)
-
-Paste text below:
 
 using NUnit.Framework;
 
@@ -43,11 +40,23 @@ public class $name$
 }
 }
 
+d) Defined $$   Noted: (need to choose All machos)
+
+click on choose macho for 
+$namespace$  =>  (i) Default namespace for current file 
+                 (ii)untick editable
+
+$name$ => (i)Current filename without extension 
+          (ii) untick editable
+$Method$ => tick editable
 
 
 2) Create test method
 
 Template Name : test
+$Method$ => tick editable
+
+
 Paste text below:
 
 
