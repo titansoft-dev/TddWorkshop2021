@@ -50,6 +50,13 @@ namespace TitansoftTddWorkshop.UnitTests
 
             _target.Score().Should().Be(24);
         }
+        [Test]
+        public void PerfectScore()
+        {
+            RollMany(12, 10);
+
+            _target.Score().Should().Be(300);
+        }
 
         private void RollStrike()
         {
