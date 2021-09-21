@@ -43,8 +43,8 @@ namespace TitansoftTddWorkshop.UnitTests
         [Test]
         public void OneStrike()
         {
-            RollStrike(); //first frame
-            Roll(5); // second frame
+            RollStrike();
+            Roll(5);
             Roll(2);
             RollMany(16, 0);
 
@@ -101,19 +101,20 @@ namespace TitansoftTddWorkshop.UnitTests
                 if (IsSpare())
                 {
                     score += 10 + BonusForSpare();
+                    AdvanceToNextFrame();
                 }
                 else if (IsStrike())
                 {
                     score += 10 + BonusForStrike();
                     AdvanceToNextFrameForStrike();
-                    continue;
                 }
                 else
                 {
                     score += CurrentFrameScore();
+                    AdvanceToNextFrame();
                 }
 
-                AdvanceToNextFrame();
+
             }
 
             return score;
