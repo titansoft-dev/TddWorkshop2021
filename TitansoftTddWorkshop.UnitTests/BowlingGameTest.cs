@@ -24,6 +24,16 @@ namespace TitansoftTddWorkshop.UnitTests
             _target.Score().Should().Be(0);
 
         }
+        [Test]
+        public void AllOne()
+        {
+            _target = new BowlingGame();
+
+            RollMany(20, 1);
+
+            _target.Score().Should().Be(20);
+
+        }
 
         private void RollMany(int rounds, int pinsDown)
         {
