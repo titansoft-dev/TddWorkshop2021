@@ -7,6 +7,7 @@ namespace TitansoftTddWorkshop.UnitTests
     [TestFixture()]
     public class BowlingGameTest
     {
+        private BowlingGame _target;
 
         [SetUp]
         public void Setup()
@@ -16,20 +17,20 @@ namespace TitansoftTddWorkshop.UnitTests
         [Test]
         public void AllZero()
         {
-            //Arrange
-            var target = new BowlingGame();
+            _target = new BowlingGame();
 
-            for (int i = 0; i < 20; i++)
+            RollMany(20, 0);
+
+            _target.Score().Should().Be(0);
+
+        }
+
+        private void RollMany(int rounds, int pinsDown)
+        {
+            for (int i = 0; i < rounds; i++)
             {
-                target.Roll(0);
+                _target.Roll(pinsDown);
             }
-
-            //Act
-            int score = target.Score();
-
-            //Assert
-            score.Should().Be(0);
-
         }
 
         [TearDown]
