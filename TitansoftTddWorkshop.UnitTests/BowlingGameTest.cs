@@ -39,6 +39,21 @@ namespace TitansoftTddWorkshop.UnitTests
 
             _target.Score().Should().Be(14);
         }
+        [Test]
+        public void OneStrike()
+        {
+            RollStrike(); //first frame
+            Roll(5); // second frame
+            Roll(2);
+            RollMany(16, 0);
+
+            _target.Score().Should().Be(24);
+        }
+
+        private void RollStrike()
+        {
+            Roll(10);
+        }
 
         private void Roll(int pinsDown)
         {
