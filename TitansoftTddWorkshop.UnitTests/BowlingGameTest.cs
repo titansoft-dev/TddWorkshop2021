@@ -39,6 +39,7 @@ namespace TitansoftTddWorkshop.UnitTests
 
             _target.Score().Should().Be(14);
         }
+
         [Test]
         public void OneStrike()
         {
@@ -101,6 +102,12 @@ namespace TitansoftTddWorkshop.UnitTests
                 {
                     score += 10 + BonusForSpare();
                 }
+                else if (IsStrike())
+                {
+                    score += 10 + BonusForStrike();
+                    AdvanceToNextFrameForStrike();
+                    continue;
+                }
                 else
                 {
                     score += CurrentFrameScore();
@@ -110,6 +117,21 @@ namespace TitansoftTddWorkshop.UnitTests
             }
 
             return score;
+        }
+
+        private void AdvanceToNextFrameForStrike()
+        {
+            _rollIndex++;
+        }
+
+        private int BonusForStrike()
+        {
+            return _rolls[_rollIndex + 1] + _rolls[_rollIndex + 2];
+        }
+
+        private bool IsStrike()
+        {
+            return _rolls[_rollIndex] == 10;
         }
 
         private int AdvanceToNextFrame()
