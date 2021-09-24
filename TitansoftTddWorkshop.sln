@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Instructions", ".Instructi
 		1.Create Test Template.txt = 1.Create Test Template.txt
 		2.BowlingKata.txt = 2.BowlingKata.txt
 		3.FILO Stack.txt = 3.FILO Stack.txt
+		ShortCut.txt = ShortCut.txt
+		TemplateTestClass.txt = TemplateTestClass.txt
 	EndProjectSection
 EndProject
 Global

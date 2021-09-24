@@ -1,0 +1,7 @@
+Ctrl+Shift+B  |   Build Solution
+Ctrl+R,U      |   Run Unit Tests
+Alt+Enter     |   Generate Code
+Ctrl+W        |   Code Selection
+Ctrl+Shift+R  |   Refactor options
+Ctrl+-        |   Back Navigation  
+Ctrl+L        |   Delete code  
