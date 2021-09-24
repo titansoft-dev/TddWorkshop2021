@@ -1,0 +1,81 @@
+=================================
+Template test class for BowlingGameTest
+=================================
+
+
+using NUnit.Framework;
+
+namespace TitansoftTddWorkshop.UnitTests
+{
+
+    [TestFixture()]
+    public class BowlingGameTest
+    {
+
+        [SetUp]
+        public void Setup()
+        {
+        }
+
+        [Test]
+        public void METHOD()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+        }
+
+        [TearDown]
+        public void CleanUp()
+        {
+        }
+
+    }
+}
+
+
+===================================
+Template test class for MyStackTest
+===================================
+
+using NUnit.Framework;
+
+namespace TitansoftTddWorkshop.UnitTests
+{
+
+    [TestFixture()]
+    public class MyStackTest
+    {
+
+        [SetUp]
+        public void Setup()
+        {
+        }
+
+        [Test]
+        public void METHOD()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+        }
+
+        [TearDown]
+        public void CleanUp()
+        {
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
