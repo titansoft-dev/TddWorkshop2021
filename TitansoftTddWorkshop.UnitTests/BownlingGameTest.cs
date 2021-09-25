@@ -56,6 +56,13 @@ namespace TitansoftTddWorkshop.UnitTests
 
             _target.Score().Should().Be(24);
         }
+        [Test]
+        public void PerfectScore()
+        {
+            RollMany(12, 10);
+
+            _target.Score().Should().Be(300);
+        }
 
         private void RollStrike()
         {
@@ -89,7 +96,6 @@ namespace TitansoftTddWorkshop.UnitTests
 
     public class BowlingGame
     {
-        private int score;
         private readonly int[] _rolls = new int[21];
         private int current;
         private int _rollIndex;
@@ -110,20 +116,20 @@ namespace TitansoftTddWorkshop.UnitTests
                 if (IsSpare())
                 {
                     score += 10 + BonusForSpare();
+                    AdvanceNextFrame();
+
                 }
                 else if (IsStrike())
                 {
                     score += 10 + BonusForStrike();
                     AdvanceNextFrameForStrike();
-                    continue;
                 }
-
                 else
                 {
                     score += CurrentFrameScore();
+                    AdvanceNextFrame();
                 }
 
-                AdvanceNextFrame();
             }
 
 
