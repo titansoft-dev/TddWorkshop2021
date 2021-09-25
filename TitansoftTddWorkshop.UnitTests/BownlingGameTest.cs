@@ -37,14 +37,24 @@ namespace TitansoftTddWorkshop.UnitTests
         [Test]
         public void OneSpare()
         {
-            _target.Roll(5);
-            _target.Roll(5);
-            _target.Roll(2);
+            RollSpare();
+            Roll(2);
 
             RollMany(17, 0);
 
 
             _target.Score().Should().Be(14);
+        }
+
+        private void Roll(int pinsDown)
+        {
+            _target.Roll(pinsDown);
+        }
+
+        private void RollSpare()
+        {
+            _target.Roll(5);
+            _target.Roll(5);
         }
 
         private void RollMany(int rounds, int pinsDown)
@@ -67,6 +77,7 @@ namespace TitansoftTddWorkshop.UnitTests
         private int score;
         private readonly int[] _rolls = new int[21];
         private int current;
+        private int _rollIndex;
 
         public void Roll(int pinsDown)
         {
@@ -77,24 +88,44 @@ namespace TitansoftTddWorkshop.UnitTests
         {
             int score = 0;
 
-            var rollIndex = 0;
+            _rollIndex = 0;
 
             for (int frame = 0; frame < 10; frame++)
             {
-                if (_rolls[rollIndex] + _rolls[rollIndex + 1] == 10)
+                if (IsSpare())
                 {
-                    score += 10 + _rolls[rollIndex + 2];
+                    score += 10 + BonusForSpare();
                 }
                 else
                 {
-                    score += _rolls[rollIndex] + _rolls[rollIndex + 1];
+                    score += CurrentFrameScore();
 
                 }
-                rollIndex += 2;
+                AdvanceNextFrame();
             }
 
 
             return score;
+        }
+
+        private int AdvanceNextFrame()
+        {
+            return _rollIndex += 2;
+        }
+
+        private int CurrentFrameScore()
+        {
+            return _rolls[_rollIndex] + _rolls[_rollIndex + 1];
+        }
+
+        private int BonusForSpare()
+        {
+            return _rolls[_rollIndex + 2];
+        }
+
+        private bool IsSpare()
+        {
+            return _rolls[_rollIndex] + _rolls[_rollIndex + 1] == 10;
         }
     }
 }
