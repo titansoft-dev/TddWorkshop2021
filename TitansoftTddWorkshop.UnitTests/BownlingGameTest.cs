@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using FluentAssertions;
+using NUnit.Framework;
 
 namespace TitansoftTddWorkshop.UnitTests
 {
@@ -16,10 +17,19 @@ namespace TitansoftTddWorkshop.UnitTests
         public void AllZero()
         {
             //Arrange
+            var target = new BowlingGame();
+
+            for (int i = 0; i < 20; i++)
+            {
+                target.Roll(0);
+
+            }
 
             //Act
+            int score = target.Score();
 
             //Assert
+            score.Should().Be(0);
         }
 
         [TearDown]
@@ -27,5 +37,17 @@ namespace TitansoftTddWorkshop.UnitTests
         {
         }
 
+    }
+
+    public class BowlingGame
+    {
+        public void Roll(int pinsDown)
+        {
+        }
+
+        public int Score()
+        {
+            return 0;
+        }
     }
 }
