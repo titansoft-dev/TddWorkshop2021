@@ -34,6 +34,18 @@ namespace TitansoftTddWorkshop.UnitTests
 
             _target.Score().Should().Be(20);
         }
+        [Test]
+        public void OneSpare()
+        {
+            _target.Roll(5);
+            _target.Roll(5);
+            _target.Roll(2);
+
+            RollMany(17, 0);
+
+
+            _target.Score().Should().Be(14);
+        }
 
         private void RollMany(int rounds, int pinsDown)
         {
@@ -53,14 +65,35 @@ namespace TitansoftTddWorkshop.UnitTests
     public class BowlingGame
     {
         private int score;
+        private readonly int[] _rolls = new int[21];
+        private int current;
 
         public void Roll(int pinsDown)
         {
-            score += pinsDown;
+            _rolls[current++] = pinsDown;
         }
 
         public int Score()
         {
+            int score = 0;
+
+            var rollIndex = 0;
+
+            for (int frame = 0; frame < 10; frame++)
+            {
+                if (_rolls[rollIndex] + _rolls[rollIndex + 1] == 10)
+                {
+                    score += 10 + _rolls[rollIndex + 2];
+                }
+                else
+                {
+                    score += _rolls[rollIndex] + _rolls[rollIndex + 1];
+
+                }
+                rollIndex += 2;
+            }
+
+
             return score;
         }
     }
