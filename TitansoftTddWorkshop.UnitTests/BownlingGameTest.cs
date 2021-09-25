@@ -12,17 +12,27 @@ namespace TitansoftTddWorkshop.UnitTests
         [SetUp]
         public void Setup()
         {
+            _target = new BowlingGame();
+
         }
 
         [Test]
         public void AllZero()
         {
-            _target = new BowlingGame();
 
             RollMany(20, 0);
 
 
             _target.Score().Should().Be(0);
+        }
+        [Test]
+        public void AllOne()
+        {
+
+            RollMany(20, 1);
+
+
+            _target.Score().Should().Be(20);
         }
 
         private void RollMany(int rounds, int pinsDown)
@@ -42,13 +52,16 @@ namespace TitansoftTddWorkshop.UnitTests
 
     public class BowlingGame
     {
+        private int score;
+
         public void Roll(int pinsDown)
         {
+            score += pinsDown;
         }
 
         public int Score()
         {
-            return 0;
+            return score;
         }
     }
 }
