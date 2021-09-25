@@ -7,6 +7,8 @@ namespace TitansoftTddWorkshop.UnitTests
     [TestFixture()]
     public class MyStackTest
     {
+        private MyStack<int> _target;
+        private int _maxSize = 5;
 
         [SetUp]
         public void Setup()
@@ -16,17 +18,10 @@ namespace TitansoftTddWorkshop.UnitTests
         [Test]
         public void NewStackShouldBeEmpty()
         {
-            //Arrange
-            int maxSize = 5;
-            var target = new MyStack<int>(maxSize);
 
+            _target = new MyStack<int>(_maxSize);
 
-            //Act
-            int size = target.Size;
-
-            //Assert
-            size.Should().Be(0);
-
+            _target.Size.Should().Be(0);
         }
 
         [TearDown]
