@@ -3,7 +3,6 @@ using NUnit.Framework;
 
 namespace TitansoftTddWorkshop.UnitTests
 {
-
     [TestFixture()]
     public class BownlingGameTest
     {
@@ -13,27 +12,26 @@ namespace TitansoftTddWorkshop.UnitTests
         public void Setup()
         {
             _target = new BowlingGame();
-
         }
 
         [Test]
         public void AllZero()
         {
-
             RollMany(20, 0);
 
 
             _target.Score().Should().Be(0);
         }
+
         [Test]
         public void AllOne()
         {
-
             RollMany(20, 1);
 
 
             _target.Score().Should().Be(20);
         }
+
         [Test]
         public void OneSpare()
         {
@@ -45,6 +43,7 @@ namespace TitansoftTddWorkshop.UnitTests
 
             _target.Score().Should().Be(14);
         }
+
         [Test]
         public void OneStrike()
         {
@@ -86,7 +85,6 @@ namespace TitansoftTddWorkshop.UnitTests
         public void CleanUp()
         {
         }
-
     }
 
     public class BowlingGame
@@ -113,16 +111,39 @@ namespace TitansoftTddWorkshop.UnitTests
                 {
                     score += 10 + BonusForSpare();
                 }
+                else if (IsStrike())
+                {
+                    score += 10 + BonusForStrike();
+                    AdvanceNextFrameForStrike();
+                    continue;
+                }
+
                 else
                 {
                     score += CurrentFrameScore();
-
                 }
+
                 AdvanceNextFrame();
             }
 
 
             return score;
+        }
+
+        private void AdvanceNextFrameForStrike()
+        {
+            _rollIndex++;
+        }
+
+        private int BonusForStrike()
+        {
+            return _rolls[_rollIndex + 1] + _rolls[_rollIndex + 2];
+
+        }
+
+        private bool IsStrike()
+        {
+            return _rolls[_rollIndex] == 10;
         }
 
         private int AdvanceNextFrame()
